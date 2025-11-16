@@ -1,104 +1,71 @@
-🎧 DJS03 – React Podcast Preview Application
+🎧 DSJ04 – React Podcast App
+Search • Sort • Filter • Pagination • State Sync
 
-A React-based podcast preview app that fetches data from an external API and displays it in a clean, responsive card layout.
-This project builds on the concepts from DJS01 and DJS02, transitioning from vanilla JavaScript + Web Components to a modular React architecture.
+This project is an advanced podcast browsing application built with React. It expands on the earlier podcast preview project by introducing dynamic search, sorting, genre filtering, and pagination—all working together through synchronised state management.
+
+The goal of the project is to create a smooth, real-time UI that updates instantly as users interact with the app, while maintaining consistent state across all features.
 
 🚀 Features
+🔍 Live Search
 
-Live API Fetching from:
-https://podcast-api.netlify.app/shows
+Search any part of a podcast title
 
-Responsive grid of podcast preview cards
+Updates dynamically as the user types
 
-Genre mapping using static data (data.js)
+Search results persist through sorting, filtering, and pagination
 
-Human-readable last updated date using a custom utility
+↕️ Sorting Options
 
-Loading spinner while data is being fetched
+Newest first (based on last updated date)
 
-Error handling with a friendly UI message
+Title A–Z
 
-Reusable component-driven structure (React best practices)
+Title Z–A
 
-📁 Project Structure
-src/
-│
-├── api/
-│   └── fetchPodcasts.js    # Fetches podcast data from remote API
-│
-├── components/
-│   ├── Header.jsx          # Navigation / header component
-│   ├── PodcastCard.jsx     # Displays an individual podcast card
-│   └── PodcastGrid.jsx     # Renders the full grid of cards
-│
-├── utils/
-│   └── formatDate.js       # Converts ISO timestamps into readable dates
-│
-├── App.jsx                 # Root component managing state + layout
-├── data.js                 # Static mapping of genre IDs to titles
-├── index.css               # Global styles, layout, spinner, tags
-├── main.jsx                # Vite entry point
+Sorting integrates seamlessly with current search/filter state
 
-🛠️ How It Works
-1. Data Fetching
+🎭 Genre Filtering
 
-fetchPodcasts.js handles:
+Filter podcasts by genre using a dropdown or multi-select
 
-Sending the API request
+Genre titles mapped using data.js
 
-Returning data or throwing an error
+Filters persist when switching pages or sorting
 
-Used inside App.jsx with React hooks
+📄 Pagination
 
-2. Genre Mapping
+Display podcasts in smaller, manageable chunks
 
-The API returns genre IDs — so data.js maps each ID to:
+Methods supported:
 
-A genre title
+Numbered pagination
 
-A readable tag used inside PodcastCard.jsx
+Load More button
 
-3. UI Rendering
+Infinite scroll (optional)
 
-PodcastGrid.jsx loops through the list of podcasts
+Pagination respects:
 
-Each podcast is passed into PodcastCard.jsx
+Active search
 
-Cards display:
+Active filters
 
-Poster image
+Active sorting
 
-Title
+🔄 State Synchronisation
 
-Season count
+All UI controls stay in sync
 
-Genre tags
+All selections persist as the user navigates
 
-Last updated date
+Centralised state using React hooks, context, or a state-management pattern
 
-4. Styling
+🧼 Clean, Scalable Codebase
 
-Grid layout
+Reusable functional components
 
-Tags
+Consistent formatting
 
-Spinner animation
+JSDoc documentation for utilities & major functions
 
-Error message UI
-All created with plain CSS in index.css.
-
-🎓 Learning Goals
-
-By completing this project, you will learn how to:
-
-Structure a React application using functional components
-
-Use the useEffect and useState hooks for data fetching
-
-Apply conditional rendering (loading, success, error)
-
-Consume an external API in a React front-end
-
-Build reusable UI components
-
-Use utility functions + static data inside React
+Modular file structure
